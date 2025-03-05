@@ -41,17 +41,20 @@ let DECREMENT = "post/decrement";
 let INCREASE_BY = "post/increaseBy";
 let DECREASE_BY = "post/decreaseBy";
 
+// // instead of if else, we can write switch case also
 function reducer(state = initialState, action) {
-  if (action.type === INCREMENT) {
-    return { ...state, post: state.post + 1 };
-  } else if (action.type === DECREMENT) {
-    return { ...state, post: state.post - 1 };
-  } else if (action.type === INCREASE_BY) {
-    return { ...state, post: state.post + action.payload };
-  } else if (action.type === DECREASE_BY) {
-    return { ...state, post: state.post - action.payload };
+  switch (action.type) {
+    case INCREMENT:
+      return { ...state, post: state.post + 1 };
+    case DECREMENT:
+      return { ...state, post: state.post - 1 };
+    case INCREASE_BY:
+      return { ...state, post: state.post + action.payload };
+    case DECREASE_BY:
+      return { ...state, post: state.post - action.payload };
+    default:
+      return state;
   }
-  return state;
 }
 
 const store = createStore(reducer);
