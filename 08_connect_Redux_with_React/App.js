@@ -1,13 +1,10 @@
 import React from "react";
 import "./App.css";
-import { productsList } from "./store/productsData";
 import Product from "./components/Product";
-
-import { store } from "./store/index";
-// console.log(store);
-
+import { useSelector } from "react-redux";
 
 const App = () => {
+  const productsList = useSelector((state) => state.products);
   return (
     <div className="products-container">
       {productsList.map(({ id, title, price, description, image, rating }) => (
