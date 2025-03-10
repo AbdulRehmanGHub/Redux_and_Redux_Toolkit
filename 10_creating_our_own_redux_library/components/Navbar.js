@@ -6,10 +6,10 @@ import { useSelector } from "../react-redux";
 
 export default function Navbar() {
   const cartItems = useSelector((state) => state.cartItems);
-  console.log(cartItems);
+  // console.log(cartItems);
 
   const wishlistItems = useSelector((state) => state.wishlistItems);
-  console.log(wishlistItems);
+  // console.log(wishlistItems);
 
   return (
     <header>
